@@ -1,20 +1,2 @@
-html { height: 100%; }
-
-body { font-family: "Helvetica Neue", "Helvetica", sans-serif; background: url(http://subtlepatterns.com/patterns/congruent_pentagon.png); margin: 0; height: 100%; }
-
-.wrap { width: 760px; padding: 20px 60px 60px 60px; margin: 0 auto; min-height: 80%; background: rgba(255, 255, 255, 0.75); }
-
-small { font-size: 0.6em; }
-
-.google_cal, .google_cal_2 { margin-left: 16px; }
-.google_cal ul, .google_cal_2 ul { list-style: none; margin: 0; padding: 0; }
-.google_cal li, .google_cal_2 li { margin-bottom: 18px; }
-.google_cal a, .google_cal_2 a { text-decoration: none; color: #0065c3; }
-.google_cal a:hover, .google_cal_2 a:hover { color: #118cff; }
-.google_cal .google_event_title, .google_cal_2 .google_event_title { display: block; font-size: 18px; line-height: 18px; font-weight: bold; }
-.google_cal .google_event_date, .google_cal_2 .google_event_date { display: inline-block; color: #555; font-size: 13px; font-style: italic; }
-.google_cal .google_event_location, .google_cal_2 .google_event_location { display: none; }
-.google_cal .google_event_description, .google_cal_2 .google_event_description { display: block; margin-top: 2px; }
-
-.google_cal_2 li { margin-bottom: 12px; }
-.google_cal_2 .google_event_date, .google_cal_2 .google_event_location, .google_cal_2 .google_event_description { display: none; }
+html{height:100%}body{font-family:"Helvetica Neue", "Helvetica", sans-serif;background:url(http://subtlepatterns.com/patterns/congruent_pentagon.png);margin:0;height:100%}.wrap{width:760px;padding:20px 60px 60px 60px;margin:0 auto;min-height:80%;background:rgba(255,255,255,0.75)}small{font-size:0.6em}.google_cal,.google_cal_2{margin-left:16px}.google_cal ul,.google_cal_2 ul{list-style:none;margin:0;padding:0}.google_cal li,.google_cal_2 li{margin-bottom:18px}.google_cal a,.google_cal_2 a{text-decoration:none;color:#0065c3}.google_cal a:hover,.google_cal_2 a:hover{color:#118cff}.google_cal .google_event_title,.google_cal_2 .google_event_title{display:block;font-size:18px;line-height:18px;font-weight:bold}.google_cal .google_event_date,.google_cal_2 .google_event_date{display:inline-block;color:#555;font-size:13px;font-style:italic}.google_cal .google_event_location,.google_cal_2 .google_event_location{display:none}.google_cal .google_event_description,.google_cal_2 .google_event_description{display:block;margin-top:2px}.google_cal_2 li{margin-bottom:12px}.google_cal_2 .google_event_date,.google_cal_2 .google_event_location,.google_cal_2 .google_event_description{display:none}
+/*# sourceMappingURL=style.css.map */

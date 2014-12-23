@@ -19,10 +19,31 @@
 
 	</div><!-- end wrap -->
 
-	<!-- Google Calendar API -->
-	<script type="text/javascript" src="http://www.google.com/jsapi?autoload=%7Bmodules%3A%5B%7Bname%3Agdata%2Cversion%3A1.x%2Cpackages%3A%5Bcalendar%5D%7D%5D%7D"></script>
-	<!-- Google Calendar Parser -->
-	<script type="text/javascript" src="js/googleCalendarEvents.min.js"></script>
-	<script type="text/javascript" src="js/site.js"></script>
+	<script type="text/javascript" src="dist/googleCalendarEvents.min.js"></script>
+	
+	<script type="text/javascript">
+		$.GoogleCalendarEvents({
+			calendarId: 'usa__en@holiday.calendar.google.com',
+			element: '.google_cal',
+			maxResults: 25,
+			displayCount: false,
+			dateLabel: "",
+			locationLabel: "",
+			descriptionLabel: "",
+			groupDates: true
+		});
+
+		$.GoogleCalendarEvents({
+			calendarId: 'usa__en@holiday.calendar.google.com',
+			element: '.google_cal_2',
+			maxresults: 3,
+			displayCount: false,
+			dateLabel: "",
+			locationLabel: "",
+			descriptionLabel: "",
+			groupDates: false
+		});
+	</script>
+
 </body>
 </html>
