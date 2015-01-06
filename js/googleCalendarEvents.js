@@ -26,13 +26,15 @@
 
     var today = new Date().toISOString();
     var events = {};
-    $.get('https://www.googleapis.com/calendar/v3/calendars/' + options.calendarId + '/events', {maxResults: options.maxResults, singleEvents: true, timeMin: today, key: options.apiKey})
+    $.get('https://www.googleapis.com/calendar/v3/calendars/' + options.calendarId + '/events', {maxResults: options.maxResults, singleEvents: true, orderBy: "startTime", timeMin: today, key: options.apiKey})
       .done(function(data) {
         loaded(data);
       });
 
     function loaded(data) {
       var events = data.items;
+
+      console.log(events);
 
       $(options.element).html('');
       if(options.displayCount) {
