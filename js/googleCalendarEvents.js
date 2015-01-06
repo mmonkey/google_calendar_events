@@ -24,16 +24,15 @@
     var d_names = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
     var m_names = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 
+    var today = new Date().toISOString();
     var events = {};
-    $.get('https://www.googleapis.com/calendar/v3/calendars/' + options.calendarId + '/events', {maxResults: options.maxResults, singleEvents: true, key: options.apiKey})
+    $.get('https://www.googleapis.com/calendar/v3/calendars/' + options.calendarId + '/events', {maxResults: options.maxResults, singleEvents: true, timeMin: today, key: options.apiKey})
       .done(function(data) {
         loaded(data);
       });
 
     function loaded(data) {
       var events = data.items;
-
-      console.log(events);
 
       $(options.element).html('');
       if(options.displayCount) {
