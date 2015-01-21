@@ -3,7 +3,8 @@
 	<title>Test Google Calendar</title>
 	<link rel="stylesheet" href="css/style.css">
 	<!-- jQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js" type="text/javascript"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.2/jquery.xdomainrequest.min.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -23,7 +24,7 @@
 	
 	<script type="text/javascript">
 		$.GoogleCalendarEvents({
-			calendarId: '75g5sgquh9n12obqh5nc9dhcpo@group.calendar.google.com',
+			calendarId: 'usa__en@holiday.calendar.google.com',
 			element: '.google_cal',
 			maxResults: 25,
 			displayCount: false,

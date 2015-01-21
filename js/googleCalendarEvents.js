@@ -3,6 +3,27 @@
   * By: CJ O'Hara
   * https://github.com/mmonkey/google_calendar_events
 */
+if ( !Date.prototype.toISOString ) {
+  (function() {
+    function pad(number) {
+      var r = String(number);
+      if ( r.length === 1 ) {
+        r = '0' + r;
+      }
+      return r;
+    }
+    Date.prototype.toISOString = function() {
+      return this.getUTCFullYear()
+        + '-' + pad( this.getUTCMonth() + 1 )
+        + '-' + pad( this.getUTCDate() )
+        + 'T' + pad( this.getUTCHours() )
+        + ':' + pad( this.getUTCMinutes() )
+        + ':' + pad( this.getUTCSeconds() )
+        + '.' + String( (this.getUTCMilliseconds()/1000).toFixed(3) ).slice( 2, 5 )
+        + 'Z';
+      };
+    }() );
+}
 
 (function ($) {
   $.GoogleCalendarEvents = function (options) {
@@ -26,15 +47,13 @@
 
     var today = new Date().toISOString();
     var events = {};
-    $.get('https://www.googleapis.com/calendar/v3/calendars/' + options.calendarId + '/events', {maxResults: options.maxResults, singleEvents: true, orderBy: "startTime", timeMin: today, key: options.apiKey})
+    $.getJSON('https://www.googleapis.com/calendar/v3/calendars/' + options.calendarId + '/events', {maxResults: options.maxResults, singleEvents: true, orderBy: "startTime", timeMin: today, key: options.apiKey})
       .done(function(data) {
         loaded(data);
       });
 
     function loaded(data) {
       var events = data.items;
-
-      console.log(events);
 
       $(options.element).html('');
       if(options.displayCount) {
