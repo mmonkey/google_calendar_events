@@ -1,50 +1,35 @@
 <!DOCTYPE html>
 <head>
-	<title>Test Google Calendar</title>
-	<link rel="stylesheet" href="css/style.css">
-	<!-- jQuery -->
-	<script src="http://code.jquery.com/jquery-1.11.2.min.js" type="text/javascript"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.2/jquery.xdomainrequest.min.js" type="text/javascript"></script>
+    <title>Test Google Calendar</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 
-	<div class="wrap">
+<div class="wrap">
+    <h1>Google Calendar Events</h1>
 
-		<h1>Google Calendar Event List Demo <small>by: CJ O'Hara</small></h1>
+    <h2>Demo 1 - Full Display</h2>
+    <div class="google_cal"></div>
 
-		<h3>Demo 1 - Full Display</h3>
-		<div class="google_cal"></div>
+    <h2>Demo 2 - Titles Only</h2>
+    <div class="google_cal_2"></div>
+</div>
 
-		<h3>Demo 2 - Titles Only</h3>
-		<div class="google_cal_2"></div>
+<script src="dist/jquery-google-calendar-events.js"></script>
+<script>
+	$('.google_cal').google_calendar_events({
+		key: '', // Add your google api key here
+		calendar: 'usa__en@holiday.calendar.google.com',
+	});
 
-	</div><!-- end wrap -->
-
-	<script type="text/javascript" src="dist/googleCalendarEvents.min.js"></script>
-	
-	<script type="text/javascript">
-		$.GoogleCalendarEvents({
-			calendarId: 'usa__en@holiday.calendar.google.com',
-			element: '.google_cal',
-			maxResults: 25,
-			displayCount: false,
-			dateLabel: "",
-			locationLabel: "",
-			descriptionLabel: "",
-			groupDates: true
-		});
-
-		$.GoogleCalendarEvents({
-			calendarId: 'usa__en@holiday.calendar.google.com',
-			element: '.google_cal_2',
-			maxresults: 3,
-			displayCount: false,
-			dateLabel: "",
-			locationLabel: "",
-			descriptionLabel: "",
-			groupDates: false
-		});
-	</script>
+	$('.google_cal_2').google_calendar_events({
+		key: '', // Add your google api key here
+		calendar: 'usa__en@holiday.calendar.google.com',
+	});
+</script>
 
 </body>
 </html>

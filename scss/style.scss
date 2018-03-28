@@ -3,21 +3,12 @@ html {
 }
 body {
 	font-family: "Helvetica Neue", "Helvetica", sans-serif;
-	background: url(http://subtlepatterns.com/patterns/congruent_pentagon.png);
 	margin: 0;
 	height: 100%;
 }
 .wrap {
-	width: 760px;
-	padding: 20px 60px 60px 60px;
-	margin: 0 auto;
-	min-height: 80%;
-	background: rgba(#fff, 0.75);
+	padding: 20px 60px;
 }
-small {
-	font-size: 0.6em;
-}
-
 .google_cal {
 	margin-left: 16px;
 
@@ -37,22 +28,19 @@ small {
 		}
 	}
 	.google_event_title {
-		display: block;
 		font-size: 18px;
 		line-height: 18px;
 		font-weight: bold;
 	}
 	.google_event_date {
-		display: inline-block;
 		color: #555;
 		font-size: 13px;
 		font-style: italic;
 	}
 	.google_event_location {
-		display: none;
+		font-weight: bold;
 	}
 	.google_event_description {
-		display: block;
 		margin-top: 2px;
 	}
 }

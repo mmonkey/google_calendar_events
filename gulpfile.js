@@ -1,56 +1,46 @@
-var gulp = require('gulp'),
-	sass = require('gulp-ruby-sass'),
-	jshint = require('gulp-jshint'),
-	rename = require('gulp-rename'),
-	uglify = require('gulp-uglify'),
-	util = require('gulp-util'),
-	browserSync = require('browser-sync');
+var gulp = require('gulp');
+var jshint = require('gulp-jshint');
+var rename = require('gulp-rename');
+var sass = require('gulp-sass');
+var uglify = require('gulp-uglify');
+var util = require('gulp-util');
 
-gulp.task('sass', function() {
-	return gulp.src(['scss/*.scss', '!scss/_*.scss'])
-		.pipe(sass({
-			style: 'compressed'
-		}))
-		.on('error', function (err) { console.log(err.message); })
-		.pipe(gulp.dest('css'))
-		.pipe(browserSync.reload({stream: true}));
-});
-
-gulp.task('lint', function() {
-	return gulp.src(['s/*.js', '!js/**/*.min.js'])
+gulp.task('lint', function () {
+	return gulp.src('./src/index.js')
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'));
 });
 
-gulp.task('beautify', function() {
-	gulp.src(['js/*.js', '!js/**/*.min.js'])
+gulp.task('uglify', function () {
+	gulp.src('./src/index.js')
 		.pipe(uglify({
 			output: {
 				beautify: true,
-				comments: true
-			}
+				comments: false,
+			},
+			compress: false,
 		}))
-		.pipe(gulp.dest('dist'));
+		.pipe(rename('jquery-google-calendar-events.js'))
+		.pipe(gulp.dest('./dist'));
 });
 
-gulp.task('compress', function() {
-	gulp.src(['js/*.js', '!js/**/*.min.js'])
+gulp.task('minify', function () {
+	gulp.src('./src/index.js')
 		.pipe(uglify().on('error', util.log))
-		.pipe(rename({suffix: '.min'}))
-		.pipe(gulp.dest('dist'));
+		.pipe(rename({
+			basename: 'jquery-google-calendar-events',
+			suffix: '.min'
+		}))
+		.pipe(gulp.dest('./dist'));
 });
 
-gulp.task('browser-sync', function() {
-	browserSync.init(null, {
-		server: {
-			baseDir: "./",
-			directory: true
-		}
-	});
+gulp.task('sass', function () {
+	return gulp.src('./scss/style.scss')
+		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+		.pipe(gulp.dest('./css'));
 });
 
-gulp.task('default', ['browser-sync'], function() {
-	gulp.watch('scss/**/*.scss', ['sass']);
-	gulp.watch('**/*.html', browserSync.reload);
-	gulp.watch('js/*.js', ['lint', 'beautify', 'compress', browserSync.reload]);
+gulp.task('default', ['lint', 'uglify', 'minify', 'sass'], function () {
+	gulp.watch('src/index.js', ['lint', 'uglify', 'minify']);
+	gulp.watch('scss/style.scss', ['sass']);
 });
