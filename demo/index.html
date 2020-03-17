@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <title>Google Calendar Events</title>
+
+    <!-- Moment (optional) -->
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment-timezone-with-data-1970-2030.min.js"></script>
+
+    <script src="../dist/google-calendar-events.js"></script>
+</head>
+<body>
+
+    <h1>Google Calendar Events</h1>
+
+    <h2>USA Holidays</h2>
+    <div class="google_cal"></div>
+
+    <script type="text/javascript">
+        new GoogleCalendarEvents('<YOUR_GOOGLE_CALENDAR_API_KEY>')
+            .calendarId('usa__en@holiday.calendar.google.com')
+            .maxResults(25)
+            .render('.google_cal');
+    </script>
+
+</body>
+</html>

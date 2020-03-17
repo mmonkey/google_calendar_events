@@ -1,58 +1,74 @@
 Google Calendar Events
-======================
+======================  
+Google calendar events is a javascript library that displays a public google calendar events feed.
 
-Google calendar events is a jQuery plugin that displays a public google calendar events feed.
+## Prerequisites  
+- [Google Calendar API Key](https://developers.google.com/calendar)
 
-## Usage
+## Usage  
+### Moment  
+For better time formatting, include the following libraries:
+- [Moment.js](https://momentjs.com/)
+- [Moment-Timezone](https://momentjs.com/timezone/)
 
+### Javascript  
 ```html
-<div id="my-element"></div>
+<head>
+	<!-- Moment.js and Moment-Timezone (Optional) -->
+	<script src="moment.min.js"></script>
+	<script src="moment-timezone.min.js"></script>
 
-<script>
-	$('#my-element').google_calendar_events({
-		key: '<your-key-here>', // Google Calendar API Key see: https://console.developers.google.com
-		calendar: '<google-calendar-id>',
-		max: 10
-	});
-</script>
+	<script src="google-calendar-events.js"></script>
+</head>
+<body>
+	<div id="my-element"></div>
+	<script type="text/javascript">
+		new GoogleCalendarEvents('<YOUR_GOOGLE_CALENDAR_API_KEY>')
+			.calendarId('usa__en@holiday.calendar.google.com')
+			.maxResults(50)
+			.momentDateFormat('MMMM Do YYYY')
+			.render('#my-element');
+	</script>
+</body>
 ```
 
-Example Output
-
+### jQuery (legacy)  
 ```html
-<div id="my-element">
-    <ul class="google_event_list">
-        <li>
-            <div class="google_event_title">
-                <a href="#" rel="Easter Sunday">Easter Sunday</a>
-            </div>
-            <div class="google_event_date">Sat Mar 31, 2018</div>
-        </li>
-        <li>
-            <div class="google_event_title">
-                <a href="#" rel="Cinco de Mayo">Cinco de Mayo</a>
-            </div>
-            <div class="google_event_date">Fri May 4, 2018</div>
-        </li>
-        <li>
-            <div class="google_event_title">
-                <a href="#" rel="Columbus Day (regional holiday)">Columbus Day (regional holiday)</a>
-            </div>
-            <div class="google_event_date">Sun Oct 7, 2018</div>
-            <div class="google_event_description">Description</div>
-        </li>
-    </ul>
-</div>
+<head>
+	<script src="jquery.min.js"></script>
+	<script src="jquery-google-calendar-events.min.js"></script>
+</head>
+<body>
+	<div id="my-element"></div>
+    <script type="text/javascript">
+    	$('#my-element').google_calendar_events({
+    		key: '<YOUR_GOOGLE_CALENDAR_API_KEY>',
+    		calendarId: 'usa__en@holiday.calendar.google.com',
+    		maxResults: 20
+    	});
+    </script>
+</body>
 ```
 
-## Options
+## Options  
+The following options are available. All but `key` are callable functions for the Javascript implementation.  
 
-| Parameter | Description | Type |
-| --------- | ----------- | ---- |
-| `key` | Google Calendar API Key | String |
-| `calendar` | Google Calendar Id | String |
-| `max` | Max number of results (default 10) | Number |
+| Parameter | Description | Type | Default |
+| --------- | ----------- | ---- | ------- |
+| `key` | Google Calendar API Key | String | N/A |
+| `calendarId` | Google Calendar identifier | String | N/A |
+| `maxResults` | Max number of results | Number | 10 |
+| `momentDateFormat` | Moment.js format for displaying the date | String | "dddd, MMMM Do YYYY" |
+| `momentTimeFormat` | Moment.js format for displaying the time | String | "h:mm a" |
+| `orderBy` | The order to display the events | String | "startTime" |
+| `q` | Search terms to find events to display | String | N/A |
+| `showDeleted` | Display events that have been "cancelled"? | Boolean | False |
+| `singleEvents` | Display recurring events as single instances? | Boolean | True |
+| `timeMax` | Upper bound (exclusive) for an event's start time | String,Date | N/A |
+| `timeMin` | Lower bound (exclusive) for an event's end time | String,Date | Today @ 00:00:00 |
+| `timeZone` | The time zone to display the results in | String,Date | Client's time zone |
+| `updatedMin` | Lower bound for an event's last modified time | Boolean | True |
 
-## License
 
-Google Calendar Events is licensed under the MIT License.
+## License  
+GoogleCalendarEvents is licensed under the MIT License.

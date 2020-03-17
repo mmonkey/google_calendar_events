@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <title>Google Calendar Events - jQuery</title>
+
+    <!-- Moment (optional) -->
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment-timezone-with-data-1970-2030.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="../dist/jquery-google-calendar-events.js"></script>
+</head>
+<body>
+
+    <h1>Google Calendar Events - jQuery</h1>
+
+    <h2>USA Holidays</h2>
+    <div class="google_cal"></div>
+
+    <script type="text/javascript">
+        $('.google_cal').google_calendar_events({
+            key: '<YOUR_GOOGLE_CALENDAR_API_KEY>',
+            calendarId: 'usa__en@holiday.calendar.google.com',
+            q: 'easter',
+        });
+    </script>
+
+</body>
+</html>
