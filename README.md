@@ -35,6 +35,10 @@ For better time formatting, include the following libraries:
 ### jQuery (legacy)  
 ```html
 <head>
+	<!-- Moment.js and Moment-Timezone (Optional) -->
+	<script src="moment.min.js"></script>
+	<script src="moment-timezone.min.js"></script>
+
 	<script src="jquery.min.js"></script>
 	<script src="jquery-google-calendar-events.min.js"></script>
 </head>
@@ -71,4 +75,4 @@ The following options are available. All but `key` are callable functions for th
 
 
 ## License  
-GoogleCalendarEvents is licensed under the MIT License.
+Google Calendar Events is licensed under the MIT License.
