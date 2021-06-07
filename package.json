@@ -1,6 +1,6 @@
 {
 	"name": "google_calendar_events",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "Display a Google Calendar's events.",
 	"main": "src/index",
 	"scripts": {
